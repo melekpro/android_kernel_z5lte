@@ -4,7 +4,7 @@
 # Copyright (C) 2018 Yuvraj Saxena (imyuvraj)
 #
 
-# Script To gcloud vm and many more features
+# Script to compile kernel
 
 # Colors
 ORNG=$'\033[0;33m'
@@ -118,7 +118,7 @@ fi
 
 function BUILD() {
 clear
-        COMPILED_KERNEL=out/arch/arm/boot/zImage-dtb
+        COMPILED_KERNEL="out/arch/arm/boot/zImage-dtb"
 	export KBUILD_BUILD_USER=Yuvraj
         export KBUILD_BUILD_HOST=∆Thestral
         mkdir -p out
@@ -127,7 +127,7 @@ clear
 clear
         echo "${YLW} BUILDING KERNEL..."
         make -j4 O=out/ &>> Kernel.log
-	COMPILED_DATE=`date '+%Y-%m-%d %H:%M:%S'`
+	COMPILED_DATE=$(date +"%Y-%m-%d-%H:%M:%S")
 }
 
 function CHECK() {
@@ -150,7 +150,7 @@ else
         echo "${GRN} #####################################"
         echo "${ORNG} #  uploading Kernel                #"
         echo "${ORNG} #####################################"
-        mv ${COMPILED_KERNEL} Kernel_${COMPILED_DATE}
+        cp ${COMPILED_KERNEL} Kernel_${COMPILED_DATE}
 	zip -r Kernel_${COMPILED_DATE}.zip Kernel_${COMPILED_DATE}
 clear
         TRANSFER Kernel_${COMPILED_DATE}.zip
