@@ -224,23 +224,21 @@ else
 fi
 
 if [[ "${BUILD_KERNEL}" = 'y' ]]; then
-clear
-	#TOOLCHAIN
+	TOOLCHAIN
         START=$(date +"%s")
-        #BUILD
-	#CHECK
+        BUILD
+	CHECK
         END=$(date +%s)
         TIME_STRING="$(FORMAT_TIME "${START}" "${END}")"
         echo "${GRN}Completed In: ${TIME_STRING}"
 elif [[ "${CLEAN_KERNEL}" = 'y' ]]; then
         START=$(date +"%s")
-        #CLEAN
+        CLEAN
 	END=$(date +%s)
 	TIME_STRING="$(FORMAT_TIME "${START}" "${END}")"
 	echo "${GRN}Completed In: ${TIME_STRING}"
 else
 if [[ "${HELP}" = 'y' ]]; then
-clear
         HELP
 fi
 fi
