@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------
- * Author : Yuvraj Saxena (frap130@github.com)
- * Email : thefrap130@gmail.com
+ * Author : Yuvraj Saxena (imyuvraj@github.com)
+ * Email : theyuvrajsaxena@gmail.com
  * Note : (Don't remove this block of code from here!)
  * Neither you and nor your any friends or family members will
  * change credits from here! you know the consequences of removing!

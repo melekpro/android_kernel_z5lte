@@ -1,4 +1,3 @@
-
 /dts-v1/;
 
 #include "mt6735m.dtsi"
@@ -132,17 +131,17 @@
 		};
 
 		cust_alsps@0 {
-		compatible				= "mediatek,stk3x1x";
+		compatible				= "mediatek,ltr559";
 		i2c_num					= <0x2>;
-		i2c_addr				= <0x48 0x0 0x0 0x0>;
+		i2c_addr				= <0x23 0x0 0x0 0x0>;
 		polling_mode_ps				= <0>;
 		polling_mode_als			= <1>;
 		power_id				= <0xffff>;
 		power_vol				= <0>;
-		als_level = <0x5 0x9 0x24 0x3b 0x52 0x84 0xcd 0x111 0x1f4 0x34d 0x470 0x609 0x93c 0x122f 0x1b46>;
-		als_value = <0xa 0xa 0x50 0x55 0x5a 0x91 0xe1 0x12c 0x226 0x3a2 0x4e2 0x6a4 0xa28 0x1400 0x1e00 0x2800>;
-		ps_threshold_high			= <0x6a4>; 
-		ps_threshold_low			= <0x5dc>;
+		als_level = <0x0 0x148 0x35d 0x561 0xc35 0x1e29 0x1e57 0x314d 0x5a16 0x6f0e 0x81fa 0xb80c 0xe15e 0xe15e 0xffff 0xffff>;
+		als_value = <0x0 0x85 0x130 0x1f6 0x3ec 0x7d5 0xbf2 0x138d 0x1f48 0x271a 0x2ee0 0x3e80 0x4e20 0x4e20 0x4e20 0x4e20>;
+		ps_threshold_high			= <0x82>; 
+		ps_threshold_low			= <0x6e>;
 		is_batch_supported_ps			= <0>;
 		is_batch_supported_als			= <0>;
 		};
@@ -217,32 +216,28 @@
 		accdet-mic-vol = <7>;
 		headset-mode-setting = <0x500 0x200 1 0x1F0 0x800 0x800 0x20>;
 		accdet-plugout-debounce = <20>;
-		/*1:ACC mode, 2:low cost without in bias, 6:low cost with in bias*/
 		accdet-mic-mode = <1>;
-		/*0--MD_MAX--UP_MAX--DW_MAX*/
 		headset-three-key-threshold = <0 80 220 500>;
-		/*0--MD_MAX--VOICE_MAX--UP_MAX--DW_MAX*/
 		headset-four-key-threshold = <0 58 121 192 450>;
 };
 &touch {
-	tpd-resolution = <400 854>;
+	tpd-resolution = <480 854>;
 	use-tpd-button = <1>;
 	tpd-key-num = <3>;
         tpd-key-local= <139 172 158 0>;
-	tpd-key-dim-local = <0x64 0x532 0x64 0x28 0x190 0x532 0x64 0x28 0x258 0x532 0x64 0x28 0x0 0x0 0x0 0x0>;
+	tpd-key-dim-local = <0x50 0x384 0x64 0x28 0xf0 0x384 0x64 0x28 0x190 0x384 0x64 0x28 0x0 0x0 0x0 0x0>;
 	tpd-max-touch-num = <5>;
 	tpd-filter-enable = <1>;
-	tpd-filter-pixel-density = <124>;
+	tpd-filter-pixel-density = <93>;
 	tpd-filter-custom-prameters = <0 0 0 0 0 0 0 0 0 0 0 0>;
 	tpd-filter-custom-speed = <0 0 0>;
-        pinctrl-names = "default", "state_eint_as_int", "state_eint_output0", "state_eint_output1",
-		"state_rst_output0", "state_rst_output1";
-	pinctrl-0 = <59>;
-	pinctrl-1 = <60>;
-	pinctrl-2 = <61>;
-	pinctrl-3 = <62>;
-	pinctrl-4 = <63>;
-	pinctrl-5 = <65>;
+        pinctrl-names = "default", "state_eint_as_int", "state_eint_output0", "state_eint_output1", "state_rst_output0", "state_rst_output1";
+	pinctrl-0 = <62>;
+	pinctrl-1 = <63>;
+	pinctrl-2 = <64>;
+	pinctrl-3 = <65>;
+	pinctrl-4 = <66>;
+	pinctrl-5 = <67>;
 	status = "okay";
 };
 &pio {
@@ -363,19 +358,18 @@
 };
 
 &kd_camera_hw1 {
-	pinctrl-names = "default", "cam0_rst0", "cam0_rst1", "cam0_pnd0", "cam0_pnd1",
-			"cam1_rst0", "cam1_rst1", "cam1_pnd0", "cam1_pnd1","cam_ldo0_0", "cam_ldo0_1";
-	pinctrl-0 = <&camera_pins_default>;
-	pinctrl-1 = <&camera_pins_cam0_rst0>;
-	pinctrl-2 = <&camera_pins_cam0_rst1>;
-	pinctrl-3 = <&camera_pins_cam0_pnd0>;
-	pinctrl-4 = <&camera_pins_cam0_pnd1>;
-	pinctrl-5 = <&camera_pins_cam1_rst0>;
-	pinctrl-6 = <&camera_pins_cam1_rst1>;
-	pinctrl-7 = <&camera_pins_cam1_pnd0>;
-	pinctrl-8 = <&camera_pins_cam1_pnd1>;
-	pinctrl-9 = <&camera_pins_cam_ldo0_0>;
-	pinctrl-10 = <&camera_pins_cam_ldo0_1>;
+	pinctrl-names = "default", "cam0_rst0", "cam0_rst1", "cam0_pnd0", "cam0_pnd1", "cam1_rst0", "cam1_rst1", "cam1_pnd0", "cam1_pnd1", "cam_ldo0_0", "cam_ldo0_1";
+	pinctrl-0 = <98>;
+	pinctrl-1 = <99>;
+	pinctrl-2 = <100>;
+	pinctrl-3 = <101>;
+	pinctrl-4 = <102>;
+	pinctrl-5 = <103>;
+	pinctrl-6 = <104>;
+	pinctrl-7 = <105>;
+	pinctrl-8 = <106>;
+	pinctrl-9 = <107>;
+	pinctrl-10 = <108>;
 	status = "okay";
 
 };
